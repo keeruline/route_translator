@@ -109,7 +109,7 @@ class TranslateRoutesTest < ActionController::TestCase
       end
     end
 
-    assert_routing URI.escape('/ru/люди'), controller: 'people', action: 'index', locale: 'ru'
+    assert_routing URI::DEFAULT_PARSER.escape('/ru/люди'), controller: 'people', action: 'index', locale: 'ru'
   end
 
   def test_resources_with_only
@@ -557,7 +557,7 @@ class TranslateRoutesTest < ActionController::TestCase
       end
     end
 
-    assert_routing URI.escape('/ru/люди'), controller: 'people', action: 'index', locale: 'ru'
+    assert_routing URI::DEFAULT_PARSER.escape('/ru/люди'), controller: 'people', action: 'index', locale: 'ru'
     assert_routing '/people', controller: 'people', action: 'index', locale: 'en'
     assert_unrecognized_route '/es/gente', controller: 'people', action: 'index', locale: 'es'
 
@@ -573,7 +573,7 @@ class TranslateRoutesTest < ActionController::TestCase
       end
     end
 
-    assert_routing URI.escape('/ru/люди'), controller: 'people', action: 'index', locale: 'ru'
+    assert_routing URI::DEFAULT_PARSER.escape('/ru/люди'), controller: 'people', action: 'index', locale: 'ru'
     assert_routing '/people', controller: 'people', action: 'index', locale: 'en'
     assert_unrecognized_route '/es/gente', controller: 'people', action: 'index', locale: 'es'
 

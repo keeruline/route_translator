@@ -14,7 +14,7 @@ module RouteTranslator
               opts[:default] = str
             end
             res = I18n.translate(str, opts)
-            URI.escape(res)
+            URI::DEFAULT_PARSER.escape(res)
           end
         end
 

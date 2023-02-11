@@ -37,13 +37,13 @@ class HostLocalesTest < integration_test_suite_parent_class
 
     ## ru route on es com
     host! 'www.testapp.es'
-    get URI.escape('/ru/манекен')
+    get URI::DEFAULT_PARSER.escape('/ru/манекен')
     assert_equal 'ru', @response.body
     assert_response :success
 
     ## native ru route on ru com
     host! 'ru.testapp.com'
-    get URI.escape('/манекен')
+    get URI::DEFAULT_PARSER.escape('/манекен')
     assert_equal 'ru', @response.body
     assert_response :success
 
@@ -64,7 +64,7 @@ class HostLocalesTest < integration_test_suite_parent_class
     ## native ru route on ru com
     host! 'ru.testapp.com'
     get '/native'
-    assert_equal URI.escape('/показывать'), @response.body
+    assert_equal URI::DEFAULT_PARSER.escape('/показывать'), @response.body
     assert_response :success
   end
 end
